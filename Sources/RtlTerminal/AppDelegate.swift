@@ -185,12 +185,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
     }
 
     @objc private func openProjectPage(_ sender: Any?) {
+        if let url = URL(string: "https://github.com/taghikhani/RtlTerminal-mac") { NSWorkspace.shared.open(url) }
+    }
+
+    @objc private func openOriginalProjectPage(_ sender: Any?) {
         if let url = URL(string: "https://github.com/mirbehnam/RtlTerminal") { NSWorkspace.shared.open(url) }
     }
 
     @objc private func showAbout(_ sender: Any?) {
         let credits = NSAttributedString(
-            string: "macOS port of Rtl Terminal by behnamapps.\nPersian, Arabic and right-to-left text in the terminal.",
+            string: "By Amin Taghikhani.\nPersian, Arabic and right-to-left text in the terminal.\n\nBased on Rtl Terminal by behnamapps.",
             attributes: [.font: NSFont.systemFont(ofSize: 11), .foregroundColor: NSColor.secondaryLabelColor])
         NSApp.orderFrontStandardAboutPanel(options: [
             .applicationName: "Rtl Terminal",
@@ -313,7 +317,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
 
         let help = submenu(main, "Help")
         item(help, "Rtl Terminal Guide", #selector(showGuide(_:)), "?", target: self)
-        item(help, "Original Project on GitHub", #selector(openProjectPage(_:)), target: self)
+        item(help, "Rtl Terminal for macOS on GitHub", #selector(openProjectPage(_:)), target: self)
+        item(help, "Original Windows Project", #selector(openOriginalProjectPage(_:)), target: self)
         NSApp.helpMenu = help
 
         return main

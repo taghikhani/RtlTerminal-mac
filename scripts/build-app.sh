@@ -23,10 +23,10 @@ cp "$BIN_DIR/RtlTerminal" "$APP/Contents/MacOS/RtlTerminal"
 sed "s/__VERSION__/$VERSION/g" Resources/Info.plist > "$APP/Contents/Info.plist"
 printf 'APPL????' > "$APP/Contents/PkgInfo"
 
-# App icon from the 256 px PNG.
+# App icon from Resources/AppIcon.png (1024 px or larger).
 ICONSET="$(mktemp -d)/AppIcon.iconset"
 mkdir -p "$ICONSET"
-for size in 16 32 128 256; do
+for size in 16 32 128 256 512; do
     sips -z "$size" "$size" Resources/AppIcon.png --out "$ICONSET/icon_${size}x${size}.png" >/dev/null
     double=$((size * 2))
     sips -z "$double" "$double" Resources/AppIcon.png --out "$ICONSET/icon_${size}x${size}@2x.png" >/dev/null

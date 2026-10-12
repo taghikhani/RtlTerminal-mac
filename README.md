@@ -7,6 +7,8 @@
 
   **A macOS terminal emulator with Persian, Arabic and right-to-left text support**
 
+  **Amin Taghikhani**
+
   [فارسی](#فارسی) · [English](#english)
 </div>
 
@@ -158,4 +160,4 @@ The app is ad-hoc signed. Set `SIGN_IDENTITY="Developer ID Application: …"` to
 
 ### Credits and license
 
-Based on [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) by behnamapps (behnam tajadini). MIT License, see [LICENSE](LICENSE).
+Developed by **Amin Taghikhani**. Based on [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) by behnamapps (behnam tajadini). MIT License, see [LICENSE](LICENSE).
