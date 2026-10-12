@@ -42,15 +42,15 @@ else
     codesign --force --deep --sign - "$APP"
 fi
 
-(cd dist && rm -f "RtlTerminal-$VERSION-macOS.zip" && ditto -c -k --keepParent RtlTerminal.app "RtlTerminal-$VERSION-macOS.zip")
+(cd dist && rm -f "RtlTerminal-macOS.zip" && ditto -c -k --keepParent RtlTerminal.app "RtlTerminal-macOS.zip")
 
 STAGING="$(mktemp -d)"
 cp -R "$APP" "$STAGING/"
 ln -s /Applications "$STAGING/Applications"
-rm -f "dist/RtlTerminal-$VERSION-macOS.dmg"
-hdiutil create -volname "Rtl Terminal" -srcfolder "$STAGING" -ov -format UDZO "dist/RtlTerminal-$VERSION-macOS.dmg" >/dev/null
+rm -f "dist/RtlTerminal-macOS.dmg"
+hdiutil create -volname "Rtl Terminal" -srcfolder "$STAGING" -ov -format UDZO "dist/RtlTerminal-macOS.dmg" >/dev/null
 rm -rf "$STAGING"
 
-echo "Built $APP"
-echo "      dist/RtlTerminal-$VERSION-macOS.zip"
-echo "      dist/RtlTerminal-$VERSION-macOS.dmg"
+echo "Built $APP (version $VERSION)"
+echo "      dist/RtlTerminal-macOS.zip"
+echo "      dist/RtlTerminal-macOS.dmg"

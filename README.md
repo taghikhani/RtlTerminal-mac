@@ -10,6 +10,25 @@
   **Amin Taghikhani**
 
   [فارسی](#فارسی) · [English](#english)
+
+  <br>
+
+  ## دانلود مستقیم · Direct Download
+
+  **آخرین نسخه برای macOS 12 و جدیدتر، Apple Silicon و Intel**
+
+  **Latest version for macOS 12 or later, Apple Silicon and Intel**
+
+  ### [⬇️ دانلود فایل نصب (DMG)](https://github.com/taghikhani/RtlTerminal-mac/releases/latest/download/RtlTerminal-macOS.dmg)
+
+  ### [⬇️ Download installer (DMG)](https://github.com/taghikhani/RtlTerminal-mac/releases/latest/download/RtlTerminal-macOS.dmg)
+
+  [نسخه ZIP · ZIP version](https://github.com/taghikhani/RtlTerminal-mac/releases/latest/download/RtlTerminal-macOS.zip) · [همه نسخه ها · All releases](https://github.com/taghikhani/RtlTerminal-mac/releases)
+
+  بعد از کشیدن برنامه به Applications، بار اول این دستور را در ترمینال بزنید:<br>
+  After moving the app to Applications, run this once in Terminal:
+
+  `xattr -dr com.apple.quarantine /Applications/RtlTerminal.app`
 </div>
 
 این پروژه نسخه macOS برنامه [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) است. منطق اصلی نسخه ویندوز (مدل صفحه VT، الگوریتم Smart RTL و چیدمان سطرها) به Swift منتقل شده و رابط کاربری با AppKit و CoreText و PTY خود macOS بازنویسی شده است.
@@ -142,7 +161,11 @@ swift run RtlTerminal                  # run without bundling
 swift test                             # unit tests (Swift Testing; Swift 6 toolchain, works with Command Line Tools)
 ```
 
-The app is ad-hoc signed. Set `SIGN_IDENTITY="Developer ID Application: …"` to sign for distribution. The GitHub workflow in `.github/workflows/macos.yml` tests, builds a universal app and attaches it to a release when a `v*` tag is pushed.
+The app is ad-hoc signed. Set `SIGN_IDENTITY="Developer ID Application: …"` to sign for distribution.
+
+### Releases
+
+The only version number is in the `VERSION` file. Every push to `main` runs `.github/workflows/macos.yml`, which tests, builds a universal app and publishes it as release `v<VERSION>`; pushing again without changing `VERSION` replaces that release's files. To ship a new version, change `VERSION` and push. The download links above always point to the latest release.
 
 ### Project layout
 

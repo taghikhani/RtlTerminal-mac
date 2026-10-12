@@ -1,11 +1,15 @@
 name: macOS build
 
+# Every push to main builds the app and publishes it as release v<VERSION>.
+# To ship a new version, change the VERSION file and push.
 on:
   push:
     branches: [main]
-    tags: ["v*"]
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -28,9 +32,18 @@ jobs:
             dist/*.dmg
 
       - name: Publish release
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v3
-        with:
-          files: |
-            dist/*.zip
-            dist/*.dmg
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="$(tr -d '[:space:]' < VERSION)"
+          TAG="v$VERSION"
+          # Fixed asset names keep .../releases/latest/download/<name> working.
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/RtlTerminal-macOS.dmg dist/RtlTerminal-macOS.zip --clobber
+          else
+            gh release create "$TAG" dist/RtlTerminal-macOS.dmg dist/RtlTerminal-macOS.zip \
+              --title "Rtl Terminal for macOS $VERSION" \
+              --target "$GITHUB_SHA" \
+              --generate-notes
+          fi
