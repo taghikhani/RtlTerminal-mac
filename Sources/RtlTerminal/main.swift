@@ -6,5 +6,5 @@ let delegate = AppDelegate()
 application.delegate = delegate
 application.run()
 #else
-print("RtlTerminal's user interface requires macOS.")
+print("RTL Terminal's user interface requires macOS.")
 #endif

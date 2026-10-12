@@ -11,7 +11,7 @@ final class GuideWindowController: NSWindowController {
 
     private static let guides: [Guide] = [
         Guide(title: "English", rightToLeft: false, sections: [
-            ("Rtl Terminal Guide", "A quick guide to the terminal features and shortcuts on macOS."),
+            ("RTL Terminal Guide", "A quick guide to the terminal features and shortcuts on macOS."),
             ("Display direction",
              "Smart RTL (View menu, ⇧⌘R) right-aligns lines that contain Persian or Arabic and keeps English words, numbers and paths in their own order. Letters stay joined even when it is off. Row RTL (⌥⌘R) is off by default; it forces right-to-left rows, also in full-screen applications, and may move their borders."),
             ("Copy and paste",
@@ -23,12 +23,12 @@ final class GuideWindowController: NSWindowController {
             ("Tabs and windows",
              "⌘T opens a tab in the current folder, ⌘N a new window, ⌘W closes a tab. ⇧⌘[ and ⇧⌘] (or ⌃Tab) switch tabs."),
             ("Finder",
-             "Drop a folder on the Dock icon, or use Finder ▸ Services ▸ New RtlTerminal Tab at Folder. Files dropped on the terminal are typed as paths."),
+             "Drop a folder on the Dock icon, or use Finder ▸ Services ▸ New RTL Terminal Tab at Folder. Files dropped on the terminal are typed as paths."),
             ("Keyboard",
              "Ctrl shortcuts work with Persian and Arabic keyboard layouts too. Enable “Use Option as Meta key” in Settings for Emacs/readline Alt shortcuts.")
         ]),
         Guide(title: "فارسی", rightToLeft: true, sections: [
-            ("راهنمای Rtl Terminal", "راهنمای سریع امکانات و میانبرهای ترمینال در macOS."),
+            ("راهنمای RTL Terminal", "راهنمای سریع امکانات و میانبرهای ترمینال در macOS."),
             ("جهت نمایش",
              "گزینه Smart RTL در منوی View (یا ⇧⌘R) سطرهای فارسی و عربی را راست چین می کند و ترتیب کلمات انگلیسی، عددها و مسیرها را حفظ می کند. اتصال حروف حتی با خاموش بودن آن حفظ می شود. گزینه Row RTL (یا ⌥⌘R) به صورت پیش فرض خاموش است و جهت کل سطر را حتی در برنامه های تمام صفحه راست به چپ می کند؛ ممکن است جای کادرهای رابط آن ها تغییر کند."),
             ("کپی و چسباندن",
@@ -40,12 +40,12 @@ final class GuideWindowController: NSWindowController {
             ("زبانه ها و پنجره ها",
              "⌘T یک زبانه در همان پوشه، ⌘N یک پنجره جدید باز می کند و ⌘W زبانه را می بندد. با ⇧⌘[ و ⇧⌘] یا ⌃Tab بین زبانه ها جابه جا شوید."),
             ("Finder",
-             "یک پوشه را روی آیکون Dock بیندازید یا از Finder گزینه Services و سپس New RtlTerminal Tab at Folder را انتخاب کنید. فایل هایی که روی ترمینال رها شوند به صورت مسیر تایپ می شوند."),
+             "یک پوشه را روی آیکون Dock بیندازید یا از Finder گزینه Services و سپس New RTL Terminal Tab at Folder را انتخاب کنید. فایل هایی که روی ترمینال رها شوند به صورت مسیر تایپ می شوند."),
             ("صفحه کلید",
              "میانبرهای Ctrl با چیدمان فارسی و عربی صفحه کلید هم کار می کنند. برای میانبرهای Alt در readline و Emacs گزینه Use Option as Meta key را در Settings فعال کنید.")
         ]),
         Guide(title: "العربية", rightToLeft: true, sections: [
-            ("دليل Rtl Terminal", "دليل سريع لميزات الطرفية واختصاراتها في macOS."),
+            ("دليل RTL Terminal", "دليل سريع لميزات الطرفية واختصاراتها في macOS."),
             ("اتجاه العرض",
              "خيار Smart RTL في قائمة View (أو ⇧⌘R) يحاذي الأسطر العربية والفارسية إلى اليمين ويحافظ على ترتيب الكلمات الإنجليزية والأرقام والمسارات. تبقى الحروف متصلة حتى عند تعطيله. خيار Row RTL (أو ⌥⌘R) معطّل افتراضياً ويفرض اتجاه السطر من اليمين إلى اليسار حتى في التطبيقات بملء الشاشة؛ قد يغيّر مواضع حدود واجهتها."),
             ("النسخ واللصق",
@@ -57,7 +57,7 @@ final class GuideWindowController: NSWindowController {
             ("الألسنة والنوافذ",
              "⌘T يفتح لساناً في المجلد الحالي، و⌘N نافذة جديدة، و⌘W يغلق اللسان. للتنقل بين الألسنة استخدم ⇧⌘[ و⇧⌘] أو ⌃Tab."),
             ("Finder",
-             "اسحب مجلداً إلى أيقونة Dock أو استخدم Finder ثم Services ثم New RtlTerminal Tab at Folder. الملفات المسحوبة إلى الطرفية تُكتب كمسارات."),
+             "اسحب مجلداً إلى أيقونة Dock أو استخدم Finder ثم Services ثم New RTL Terminal Tab at Folder. الملفات المسحوبة إلى الطرفية تُكتب كمسارات."),
             ("لوحة المفاتيح",
              "اختصارات Ctrl تعمل أيضاً مع تخطيط لوحة المفاتيح العربي والفارسي. فعّل Use Option as Meta key في الإعدادات لاختصارات Alt في readline وEmacs.")
         ])
@@ -73,7 +73,7 @@ final class GuideWindowController: NSWindowController {
             styleMask: [.titled, .closable, .resizable],
             backing: .buffered,
             defer: false)
-        window.title = "Rtl Terminal Guide"
+        window.title = "RTL Terminal Guide"
         window.isReleasedWhenClosed = false
         super.init(window: window)
 

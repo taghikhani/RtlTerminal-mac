@@ -48,7 +48,7 @@ STAGING="$(mktemp -d)"
 cp -R "$APP" "$STAGING/"
 ln -s /Applications "$STAGING/Applications"
 rm -f "dist/RtlTerminal-macOS.dmg"
-hdiutil create -volname "Rtl Terminal" -srcfolder "$STAGING" -ov -format UDZO "dist/RtlTerminal-macOS.dmg" >/dev/null
+hdiutil create -volname "RTL Terminal" -srcfolder "$STAGING" -ov -format UDZO "dist/RtlTerminal-macOS.dmg" >/dev/null
 rm -rf "$STAGING"
 
 echo "Built $APP (version $VERSION)"

@@ -52,7 +52,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         guard controllers.contains(where: \.hasRunningJob) else { return .terminateNow }
         let alert = NSAlert()
-        alert.messageText = "Quit RtlTerminal?"
+        alert.messageText = "Quit RTL Terminal?"
         alert.informativeText = "Programs are still running in some tabs. Quitting will end them."
         alert.addButton(withTitle: "Quit")
         alert.addButton(withTitle: "Cancel")
@@ -120,7 +120,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
         Settings.shared.clearRecentDirectories()
     }
 
-    /// Finder → Services → "New RtlTerminal Tab at Folder".
+    /// Finder → Services → "New RTL Terminal Tab at Folder".
     @objc func openFolderService(_ pasteboard: NSPasteboard, userData: String?, error: AutoreleasingUnsafeMutablePointer<NSString>) {
         let urls = pasteboard.readObjects(forClasses: [NSURL.self], options: [.urlReadingFileURLsOnly: true]) as? [URL] ?? []
         for url in urls {
@@ -194,10 +194,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
 
     @objc private func showAbout(_ sender: Any?) {
         let credits = NSAttributedString(
-            string: "By Amin Taghikhani.\nPersian, Arabic and right-to-left text in the terminal.\n\nBased on Rtl Terminal by behnamapps.",
+            string: "By Amin Taghikhani.\nPersian, Arabic and right-to-left text in the terminal.\n\nBased on RTL Terminal by behnamapps.",
             attributes: [.font: NSFont.systemFont(ofSize: 11), .foregroundColor: NSColor.secondaryLabelColor])
         NSApp.orderFrontStandardAboutPanel(options: [
-            .applicationName: "Rtl Terminal",
+            .applicationName: "RTL Terminal",
             .credits: credits
         ])
     }
@@ -250,8 +250,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
     private func buildMainMenu() -> NSMenu {
         let main = NSMenu()
 
-        let app = submenu(main, "Rtl Terminal")
-        item(app, "About Rtl Terminal", #selector(showAbout(_:)), target: self)
+        let app = submenu(main, "RTL Terminal")
+        item(app, "About RTL Terminal", #selector(showAbout(_:)), target: self)
         app.addItem(.separator())
         item(app, "Settings…", #selector(showSettings(_:)), ",", target: self)
         app.addItem(.separator())
@@ -259,11 +259,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
         app.addItem(withTitle: "Services", action: nil, keyEquivalent: "").submenu = services
         NSApp.servicesMenu = services
         app.addItem(.separator())
-        item(app, "Hide Rtl Terminal", #selector(NSApplication.hide(_:)), "h")
+        item(app, "Hide RTL Terminal", #selector(NSApplication.hide(_:)), "h")
         item(app, "Hide Others", #selector(NSApplication.hideOtherApplications(_:)), "h", [.command, .option])
         item(app, "Show All", #selector(NSApplication.unhideAllApplications(_:)))
         app.addItem(.separator())
-        item(app, "Quit Rtl Terminal", #selector(NSApplication.terminate(_:)), "q")
+        item(app, "Quit RTL Terminal", #selector(NSApplication.terminate(_:)), "q")
 
         let shell = submenu(main, "Shell")
         item(shell, "New Window", #selector(newWindow(_:)), "n", target: self)
@@ -316,8 +316,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSMenu
         NSApp.windowsMenu = windowMenu
 
         let help = submenu(main, "Help")
-        item(help, "Rtl Terminal Guide", #selector(showGuide(_:)), "?", target: self)
-        item(help, "Rtl Terminal for macOS on GitHub", #selector(openProjectPage(_:)), target: self)
+        item(help, "RTL Terminal Guide", #selector(showGuide(_:)), "?", target: self)
+        item(help, "RTL Terminal for macOS on GitHub", #selector(openProjectPage(_:)), target: self)
         item(help, "Original Windows Project", #selector(openOriginalProjectPage(_:)), target: self)
         NSApp.helpMenu = help
 

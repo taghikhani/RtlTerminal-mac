@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="Resources/AppIcon.png" width="128" height="128" alt="Rtl Terminal logo">
+  <img src="Resources/AppIcon.png" width="128" height="128" alt="RTL Terminal logo">
 
-  # Rtl Terminal for macOS
+  # RTL Terminal for macOS
 
   **A macOS terminal emulator with Persian, Arabic and right-to-left text support**
 
@@ -42,9 +42,9 @@
 
 ## English
 
-### Rtl Terminal for macOS
+### RTL Terminal for macOS
 
-**Rtl Terminal for macOS** is a terminal emulator for Persian, Arabic and other right-to-left language users. It is the macOS version of [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal): the Windows version's core logic (VT screen model, Smart RTL algorithm and row layout) was ported to Swift, and the interface was rebuilt with AppKit, CoreText and the native macOS PTY.
+**RTL Terminal for macOS** is a terminal emulator for Persian, Arabic and other right-to-left language users. It is the macOS version of [RTL Terminal](https://github.com/mirbehnam/RtlTerminal): the Windows version's core logic (VT screen model, Smart RTL algorithm and row layout) was ported to Swift, and the interface was rebuilt with AppKit, CoreText and the native macOS PTY.
 
 ### Features
 
@@ -111,7 +111,7 @@ The app is ad-hoc signed. If macOS refuses to open it, right-click the app and c
 
 ### Opening from Finder
 
-After copying the app to `/Applications` and running it once, right-click a folder in Finder and choose **Services › New RtlTerminal Tab at Folder**. If the item is missing, enable it in System Settings › Keyboard › Keyboard Shortcuts › Services. Dropping a folder on the Dock icon also opens a terminal there.
+After copying the app to `/Applications` and running it once, right-click a folder in Finder and choose **Services › New RTL Terminal Tab at Folder**. If the item is missing, enable it in System Settings › Keyboard › Keyboard Shortcuts › Services. Dropping a folder on the Dock icon also opens a terminal there.
 
 ### Releases
 
@@ -140,7 +140,7 @@ The only version number is in the `VERSION` file. Every push to `main` runs `.gi
 
 ### Credits and License
 
-Developed by **Amin Taghikhani**. Based on [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) by behnamapps (behnam tajadini). MIT License, see [LICENSE](LICENSE).
+Developed by **Amin Taghikhani**. Based on [RTL Terminal](https://github.com/mirbehnam/RtlTerminal) by behnamapps (behnam tajadini). MIT License, see [LICENSE](LICENSE).
 
 ---
 
@@ -148,9 +148,9 @@ Developed by **Amin Taghikhani**. Based on [Rtl Terminal](https://github.com/mir
 
 ## فارسی
 
-### ترمینال Rtl برای macOS
+### ترمینال RTL برای macOS
 
-‏**Rtl Terminal for macOS** یک شبیه ساز ترمینال برای کاربران فارسی، عربی و دیگر زبان های راست به چپ است. این برنامه نسخه macOS پروژه [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) است: منطق اصلی نسخه ویندوز (مدل صفحه VT، الگوریتم Smart RTL و چیدمان سطرها) به Swift منتقل شده و رابط کاربری با AppKit و CoreText و PTY خود macOS بازنویسی شده است.
+‏**RTL Terminal for macOS** یک شبیه ساز ترمینال برای کاربران فارسی، عربی و دیگر زبان های راست به چپ است. این برنامه نسخه macOS پروژه [RTL Terminal](https://github.com/mirbehnam/RtlTerminal) است: منطق اصلی نسخه ویندوز (مدل صفحه VT، الگوریتم Smart RTL و چیدمان سطرها) به Swift منتقل شده و رابط کاربری با AppKit و CoreText و PTY خود macOS بازنویسی شده است.
 
 ### امکانات
 
@@ -213,7 +213,7 @@ cp -R dist/RtlTerminal.app /Applications/
 
 ### بازکردن از Finder
 
-بعد از کپی برنامه در `/Applications` و یک بار اجرای آن، در Finder روی یک پوشه راست کلیک کنید و از **Services** گزینه **New RtlTerminal Tab at Folder** را انتخاب کنید. اگر این گزینه دیده نمی شود، آن را در System Settings › Keyboard › Keyboard Shortcuts › Services فعال کنید. انداختن پوشه روی آیکون برنامه در Dock هم ترمینال را در همان پوشه باز می کند.
+بعد از کپی برنامه در `/Applications` و یک بار اجرای آن، در Finder روی یک پوشه راست کلیک کنید و از **Services** گزینه **New RTL Terminal Tab at Folder** را انتخاب کنید. اگر این گزینه دیده نمی شود، آن را در System Settings › Keyboard › Keyboard Shortcuts › Services فعال کنید. انداختن پوشه روی آیکون برنامه در Dock هم ترمینال را در همان پوشه باز می کند.
 
 ### انتشار نسخه جدید
 
@@ -234,7 +234,7 @@ cp -R dist/RtlTerminal.app /Applications/
 
 ### سازنده و مجوز
 
-ساخته شده توسط **Amin Taghikhani**. بر اساس [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) ساخته behnamapps (behnam tajadini). مجوز MIT؛ فایل [LICENSE](LICENSE) را ببینید.
+ساخته شده توسط **Amin Taghikhani**. بر اساس [RTL Terminal](https://github.com/mirbehnam/RtlTerminal) ساخته behnamapps (behnam tajadini). مجوز MIT؛ فایل [LICENSE](LICENSE) را ببینید.
 
 </div>
 
@@ -244,9 +244,9 @@ cp -R dist/RtlTerminal.app /Applications/
 
 ## العربية
 
-### ‏Rtl Terminal لنظام macOS
+### ‏RTL Terminal لنظام macOS
 
-‏**Rtl Terminal for macOS** محاكي طرفية لمستخدمي العربية والفارسية وغيرهما من اللغات التي تُكتب من اليمين إلى اليسار. وهو إصدار macOS من مشروع [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal): نُقل المنطق الأساسي لإصدار ويندوز (نموذج شاشة VT وخوارزمية Smart RTL وتخطيط الأسطر) إلى Swift، وأُعيد بناء الواجهة باستخدام AppKit وCoreText وPTY الأصلي في macOS.
+‏**RTL Terminal for macOS** محاكي طرفية لمستخدمي العربية والفارسية وغيرهما من اللغات التي تُكتب من اليمين إلى اليسار. وهو إصدار macOS من مشروع [RTL Terminal](https://github.com/mirbehnam/RtlTerminal): نُقل المنطق الأساسي لإصدار ويندوز (نموذج شاشة VT وخوارزمية Smart RTL وتخطيط الأسطر) إلى Swift، وأُعيد بناء الواجهة باستخدام AppKit وCoreText وPTY الأصلي في macOS.
 
 ### الميزات
 
@@ -309,7 +309,7 @@ cp -R dist/RtlTerminal.app /Applications/
 
 ### الفتح من Finder
 
-بعد نسخ التطبيق إلى `/Applications` وتشغيله مرة واحدة، انقر بالزر الأيمن على مجلد في Finder واختر من **Services** الخيار **New RtlTerminal Tab at Folder**. إذا لم يظهر الخيار، فعّله من System Settings › Keyboard › Keyboard Shortcuts › Services. كما أن سحب مجلد إلى أيقونة التطبيق في Dock يفتح الطرفية في ذلك المجلد.
+بعد نسخ التطبيق إلى `/Applications` وتشغيله مرة واحدة، انقر بالزر الأيمن على مجلد في Finder واختر من **Services** الخيار **New RTL Terminal Tab at Folder**. إذا لم يظهر الخيار، فعّله من System Settings › Keyboard › Keyboard Shortcuts › Services. كما أن سحب مجلد إلى أيقونة التطبيق في Dock يفتح الطرفية في ذلك المجلد.
 
 ### نشر إصدار جديد
 
@@ -330,6 +330,6 @@ cp -R dist/RtlTerminal.app /Applications/
 
 ### المطوّر والترخيص
 
-تطوير **Amin Taghikhani**. مبني على [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) من behnamapps (behnam tajadini). ترخيص MIT؛ راجع ملف [LICENSE](LICENSE).
+تطوير **Amin Taghikhani**. مبني على [RTL Terminal](https://github.com/mirbehnam/RtlTerminal) من behnamapps (behnam tajadini). ترخيص MIT؛ راجع ملف [LICENSE](LICENSE).
 
 </div>

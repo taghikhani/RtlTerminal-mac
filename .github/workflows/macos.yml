@@ -43,7 +43,7 @@ jobs:
             gh release upload "$TAG" dist/RtlTerminal-macOS.dmg dist/RtlTerminal-macOS.zip --clobber
           else
             gh release create "$TAG" dist/RtlTerminal-macOS.dmg dist/RtlTerminal-macOS.zip \
-              --title "Rtl Terminal for macOS $VERSION" \
+              --title "RTL Terminal for macOS $VERSION" \
               --target "$GITHUB_SHA" \
               --generate-notes
           fi
