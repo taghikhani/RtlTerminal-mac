@@ -150,7 +150,7 @@ Developed by **Amin Taghikhani**. Based on [Rtl Terminal](https://github.com/mir
 
 ### ترمینال Rtl برای macOS
 
-**Rtl Terminal for macOS** یک شبیه ساز ترمینال برای کاربران فارسی، عربی و دیگر زبان های راست به چپ است. این برنامه نسخه macOS پروژه [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) است: منطق اصلی نسخه ویندوز (مدل صفحه VT، الگوریتم Smart RTL و چیدمان سطرها) به Swift منتقل شده و رابط کاربری با AppKit و CoreText و PTY خود macOS بازنویسی شده است.
+‏**Rtl Terminal for macOS** یک شبیه ساز ترمینال برای کاربران فارسی، عربی و دیگر زبان های راست به چپ است. این برنامه نسخه macOS پروژه [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal) است: منطق اصلی نسخه ویندوز (مدل صفحه VT، الگوریتم Smart RTL و چیدمان سطرها) به Swift منتقل شده و رابط کاربری با AppKit و CoreText و PTY خود macOS بازنویسی شده است.
 
 ### امکانات
 
@@ -244,9 +244,9 @@ cp -R dist/RtlTerminal.app /Applications/
 
 ## العربية
 
-### Rtl Terminal لنظام macOS
+### ‏Rtl Terminal لنظام macOS
 
-**Rtl Terminal for macOS** محاكي طرفية لمستخدمي العربية والفارسية وغيرهما من اللغات التي تُكتب من اليمين إلى اليسار. وهو إصدار macOS من مشروع [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal): نُقل المنطق الأساسي لإصدار ويندوز (نموذج شاشة VT وخوارزمية Smart RTL وتخطيط الأسطر) إلى Swift، وأُعيد بناء الواجهة باستخدام AppKit وCoreText وPTY الأصلي في macOS.
+‏**Rtl Terminal for macOS** محاكي طرفية لمستخدمي العربية والفارسية وغيرهما من اللغات التي تُكتب من اليمين إلى اليسار. وهو إصدار macOS من مشروع [Rtl Terminal](https://github.com/mirbehnam/RtlTerminal): نُقل المنطق الأساسي لإصدار ويندوز (نموذج شاشة VT وخوارزمية Smart RTL وتخطيط الأسطر) إلى Swift، وأُعيد بناء الواجهة باستخدام AppKit وCoreText وPTY الأصلي في macOS.
 
 ### الميزات
 
