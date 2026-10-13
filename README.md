@@ -37,7 +37,7 @@
   بعد نقل التطبيق إلى مجلد Applications، نفّذ هذا الأمر مرة واحدة في الطرفية:
   </div>
   <div>
-  `xattr -dr com.apple.quarantine /Applications/RtlTerminal.app`
+  xattr -dr com.apple.quarantine /Applications/RtlTerminal.app
   </div>
 
 ---
