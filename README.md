@@ -35,9 +35,10 @@
   <div dir="rtl">
   بعد از کشیدن برنامه به Applications، بار اول این دستور را در ترمینال بزنید:<br>
   بعد نقل التطبيق إلى مجلد Applications، نفّذ هذا الأمر مرة واحدة في الطرفية:
-  </div>div>
+  </div>
+  <div>
   `xattr -dr com.apple.quarantine /Applications/RtlTerminal.app`
-</div>
+  </div>
 
 ---
 
