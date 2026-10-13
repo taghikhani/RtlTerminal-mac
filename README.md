@@ -32,9 +32,10 @@
   [ZIP version · نسخه ZIP · نسخة ZIP](https://github.com/taghikhani/RtlTerminal-mac/releases/latest/download/RtlTerminal-macOS.zip) · [All releases · همه نسخه ها · كل الإصدارات](https://github.com/taghikhani/RtlTerminal-mac/releases)
 
   After moving the app to Applications, run this once in Terminal:<br>
+  <div dir="rtl">
   بعد از کشیدن برنامه به Applications، بار اول این دستور را در ترمینال بزنید:<br>
   بعد نقل التطبيق إلى مجلد Applications، نفّذ هذا الأمر مرة واحدة في الطرفية:
-
+  </div>div>
   `xattr -dr com.apple.quarantine /Applications/RtlTerminal.app`
 </div>
 
