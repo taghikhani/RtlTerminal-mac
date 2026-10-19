@@ -126,6 +126,18 @@ struct TerminalBufferTests {
         #expect(modes == TerminalModes())
     }
 
+    @Test func staleMouseReportingIsReset() {
+        let buffer = TerminalBuffer(columns: 20, rows: 5)
+        buffer.process("\u{1b}[?2004h\u{1b}[?1003h\u{1b}[?1006h\u{1b}[?1004h")
+        #expect(buffer.resetMouseReporting())
+        let modes = buffer.modes
+        #expect(modes.mouseTrackingMode == 0)
+        #expect(!modes.sgrMouse)
+        #expect(!modes.focusReporting)
+        #expect(modes.bracketedPaste)
+        #expect(!buffer.resetMouseReporting())
+    }
+
     @Test func emojiClustersKeepWidth() {
         let buffer = TerminalBuffer(columns: 20, rows: 5)
         buffer.process("👨‍💻🇮🇷X")

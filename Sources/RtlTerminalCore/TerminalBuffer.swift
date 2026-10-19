@@ -146,6 +146,21 @@ public final class TerminalBuffer: @unchecked Sendable {
         revision += 1
     }
 
+    /// Turns off mouse and focus reporting. Used when the shell is back in
+    /// the foreground but a program that enabled them exited without
+    /// restoring them (crash, Ctrl+C, dropped SSH connection), which would
+    /// otherwise type mouse reports into the prompt. Returns true if anything changed.
+    @discardableResult
+    public func resetMouseReporting() -> Bool {
+        lock.lock(); defer { lock.unlock() }
+        guard mouseTrackingMode != 0 || sgrMouse || focusReporting else { return false }
+        mouseTrackingMode = 0
+        sgrMouse = false
+        focusReporting = false
+        revision += 1
+        return true
+    }
+
     public var currentRevision: Int {
         lock.lock(); defer { lock.unlock() }
         return revision

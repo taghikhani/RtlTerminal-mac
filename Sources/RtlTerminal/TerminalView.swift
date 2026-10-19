@@ -6,6 +6,10 @@ import RtlTerminalCore
 protocol TerminalViewDelegate: AnyObject {
     func terminalView(_ view: TerminalView, send text: String)
     func terminalViewThemeDidChange(_ view: TerminalView)
+    /// True while a program other than the shell owns the terminal.
+    func terminalViewApplicationIsRunning(_ view: TerminalView) -> Bool
+    /// Clears mouse modes left behind by a program that has exited.
+    func terminalViewResetStaleMouseModes(_ view: TerminalView)
 }
 
 /// Cell-based terminal surface. Only visible rows are shaped and drawn;
@@ -52,6 +56,25 @@ final class TerminalView: NSView, NSTextInputClient, NSMenuItemValidation {
     }
 
     private var modes: TerminalModes { snapshot?.modes ?? TerminalModes() }
+
+    /// Modes for mouse and scroll handling. The shell's line editor never
+    /// wants mouse reports or scroll-as-arrow-keys, so when the shell is in
+    /// the foreground any mouse modes still set belong to a program that
+    /// exited without restoring them and are ignored and cleared.
+    private var mouseModes: TerminalModes {
+        var modes = self.modes
+        guard modes.mouseTrackingMode > 0 || modes.focusReporting || modes.alternateScreen else { return modes }
+        if delegate?.terminalViewApplicationIsRunning(self) == false {
+            if modes.mouseTrackingMode > 0 || modes.focusReporting {
+                delegate?.terminalViewResetStaleMouseModes(self)
+            }
+            modes.mouseTrackingMode = 0
+            modes.sgrMouse = false
+            modes.focusReporting = false
+            modes.alternateScreen = false
+        }
+        return modes
+    }
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -827,7 +850,7 @@ final class TerminalView: NSView, NSTextInputClient, NSMenuItemValidation {
         } else {
             NSCursor.iBeam.set()
         }
-        if modes.mouseTrackingMode == 1003 { _ = reportMouse(event, button: 35, released: false, motion: true) }
+        if mouseModes.mouseTrackingMode == 1003 { _ = reportMouse(event, button: 35, released: false, motion: true) }
     }
 
     override func mouseDown(with event: NSEvent) {
@@ -864,7 +887,7 @@ final class TerminalView: NSView, NSTextInputClient, NSMenuItemValidation {
 
     override func mouseDragged(with event: NSEvent) {
         if let button = reportedButton {
-            if modes.mouseTrackingMode >= 1002 { _ = reportMouse(event, button: button + 32, released: false, motion: true) }
+            if mouseModes.mouseTrackingMode >= 1002 { _ = reportMouse(event, button: button + 32, released: false, motion: true) }
             return
         }
         guard dragging else { return }
@@ -934,7 +957,7 @@ final class TerminalView: NSView, NSTextInputClient, NSMenuItemValidation {
     }
 
     override func scrollWheel(with event: NSEvent) {
-        let modes = self.modes
+        let modes = mouseModes
         let reportsMouse = modes.mouseTrackingMode > 0 && modes.sgrMouse && !event.modifierFlags.contains(.shift)
         guard reportsMouse || modes.alternateScreen else {
             super.scrollWheel(with: event)
@@ -961,7 +984,7 @@ final class TerminalView: NSView, NSTextInputClient, NSMenuItemValidation {
     /// Sends an SGR mouse report when the application asked for the mouse.
     /// Shift bypasses reporting so text can still be selected.
     private func reportMouse(_ event: NSEvent, button: Int, released: Bool, motion: Bool = false, force: Bool = false) -> Bool {
-        let modes = self.modes
+        let modes = mouseModes
         guard modes.mouseTrackingMode > 0, modes.sgrMouse else { return false }
         guard force || !event.modifierFlags.contains(.shift) else { return false }
         guard let cell = gridCell(at: convert(event.locationInWindow, from: nil)) else { return force }

@@ -236,16 +236,33 @@ final class TerminalWindowController: NSWindowController, NSWindowDelegate, Term
         scrollView.scrollerKnobStyle = theme == .dark ? .light : .dark
     }
 
+    func terminalViewApplicationIsRunning(_ view: TerminalView) -> Bool {
+        hasRunningJob
+    }
+
+    func terminalViewResetStaleMouseModes(_ view: TerminalView) {
+        if buffer.resetMouseReporting() { scheduleRender() }
+    }
+
     // MARK: - Window
 
     func windowDidBecomeKey(_ notification: Notification) {
         terminalView.isWindowKey = true
-        if terminalView.snapshot?.modes.focusReporting == true { send("\u{1b}[I") }
+        if terminalView.snapshot?.modes.focusReporting == true, focusReportingIsLive() { send("\u{1b}[I") }
     }
 
     func windowDidResignKey(_ notification: Notification) {
         terminalView.isWindowKey = false
-        if terminalView.snapshot?.modes.focusReporting == true { send("\u{1b}[O") }
+        if terminalView.snapshot?.modes.focusReporting == true, focusReportingIsLive() { send("\u{1b}[O") }
+    }
+
+    /// Focus reports left enabled by an exited program would be typed into the shell.
+    private func focusReportingIsLive() -> Bool {
+        guard hasRunningJob else {
+            if buffer.resetMouseReporting() { scheduleRender() }
+            return false
+        }
+        return true
     }
 
     func windowShouldClose(_ sender: NSWindow) -> Bool {
